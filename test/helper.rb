@@ -9,10 +9,19 @@ rescue Bundler::BundlerError => e
 end
 require 'test/unit'
 require 'shoulda'
+require 'active_record'
+require 'active_record/test_case'
+require 'mocha'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'ar_validation_extensions'
+
+
+
+# These have to load AFTER our gem...
+require 'models/abstract_model'
+require 'models/person'
 
 class Test::Unit::TestCase
 end

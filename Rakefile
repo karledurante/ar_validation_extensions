@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "ar_validation_extensions"
   gem.homepage = "http://github.com/karledurante/ar_validation_extensions"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Extends ActiveRecord validations with reusable and customizable validation methods.}
+  gem.description = %Q{Tired of repeating 'validates_format_of' with the same regex expression across your models only to validate the same email address and postal code fields?  So am I.  Use ArValidationExtensions to dynamically define reusable formats for any field you want.}
   gem.email = "kdurante@customink.com"
   gem.authors = ["Karle Durante"]
   # dependencies defined in Gemfile
