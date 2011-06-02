@@ -2,7 +2,7 @@
 
 Tired of repeating 'validates_format_of' with the same regex expression across your models only to validate the same email address and postal code fields?  So am I.  Use ArValidationExtensions to dynamically define reusable formats for any field you want.
 
-By default, ArValidationExtensions comes with smart formats for email addresses, postal codes, and phone numbers.  Even better, no code repetition!  Use constructs that make sense such as "validates_email_for :account_owner" and "validates_postal_code_for :address_postal_code".
+By default, ArValidationExtensions comes with smart formats for email addresses and postal codes.  Even better, no code repetition!  Use constructs that make sense such as "validates_email_for :account_owner" and "validates_postal_code_for :address_postal_code".
 
 == Contributing to ar_validation_extensions
  
@@ -25,14 +25,14 @@ Modify your Gemfile to include ArValidationExtensions:
 Run `bundle install`.  You thought it would be harder?
 
 == Usage 
-By default, ArValidationExtensions supports email, phone number, and postal code formats.  These can be leveraged by including code such as:
+By default, ArValidationExtensions supports email and postal code formats.  These can be leveraged by including code such as:
 
-class Person < ActiveRecord::Base
-  # Notice how the normal ActiveRecord Validation options can still be used...
-  validates_email_for :email_address
-  validates_postal_code_for :postal_code, :allow_blank => true
-  validates_phone_number_for :home_phone, :if => :full_validation_required
-end
+  class Person < ActiveRecord::Base
+    # Notice how the normal ActiveRecord Validation options can still be used...
+    validates_email_for :email_address
+    validates_email_for :home_email_address, :if => :full_validation_required
+    validates_postal_code_for :postal_code, :allow_blank => true
+  end
 
 === Configuration
 Default configurations are specified in the gem's config/ar_validation_extensions.yml file.  If you wish to modify the default regular expressions or messages reported when validation fails, simply copy this file to the config directory in your Rails root folder.  You can also manually create [rails_root]/config/ar_validation_extensions.yml if you'd like to.
@@ -67,6 +67,7 @@ As you might have guessed, the gem is driven off of the configuration file.  The
 
 == TODO
 - We intend to support more locales other then english.  The idea being that we'd check the current local, and load the regex/message accordingly.
+- Support some other highly repetitious fields, such as phone number.
 
 == Copyright
 
