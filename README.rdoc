@@ -39,10 +39,11 @@ Default configurations are specified in the gem's config/ar_validation_extension
 
 The format of this file is as follows:
 
-en:
-  email:
-    regex: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/
-    message: "is invalid.  The address should be in a format similar to 'user@example.com'."
+  # ar_validation_extensions.yml
+  en:
+    email:
+      regex: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/
+      message: "is invalid.  The address should be in a format similar to 'user@example.com'."
 
 PLEASE NOTE that localization is not really supported at this time.  By default we only support english mappings, the 'en' locale exists to allow us to more easily support localization in the future.
 
@@ -51,17 +52,18 @@ If you modify this file, you will need to bounce your application server (or res
 === The Hotness
 You can dynamically create your own format validators!  For instance, add this to your [rails_root]/config/ar_validation_extensions.yml file:
 
-en:
-  hotness:
-    regex: /^hot/
-    message: "is not hot!"
+  # ar_validation_extensions.yml
+  en:
+    hotness:
+      regex: /^hot/
+      message: "is not hot!"
 
 And you now have a completely useless method to validate that fields begin with 'hot':
 
-class Person < ActiveRecord::Base
-  # Validation will fail if your first_name does not begin with 'hot'
-  validates_hotness_for :first_name
-end
+  class Person < ActiveRecord::Base
+    # Validation will fail if your first_name does not begin with 'hot'
+    validates_hotness_for :first_name
+  end
 
 As you might have guessed, the gem is driven off of the configuration file.  The same way you can add validators, you can remove them by simply deleting lines from the configuration file.
 
