@@ -1,3 +1,10 @@
+= THIS REPOSITORY HAS MOVED
+
+ar_validation_extensions has become format_for_extensions and can now be found here:  https://github.com/customink/format_for_extensions
+
+
+
+
 = ar_validation_extensions
 
 Tired of repeating 'validates_format_of' with the same regex expression across your models only to validate the same email address and postal code fields?  So am I.  Use ArValidationExtensions to dynamically define reusable formats for any field you want.
